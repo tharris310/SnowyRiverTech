@@ -49,8 +49,8 @@ export default async function RootLayout({
                     <Image
                       src="/images/logo.svg"
                       alt="Company Logo"
-                      width={40}
-                      height={40}
+                      width={60}
+                      height={60}
                       priority
                       className="rounded-lg"
                     />
