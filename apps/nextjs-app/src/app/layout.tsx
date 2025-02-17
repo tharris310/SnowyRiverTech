@@ -9,6 +9,7 @@ import { ReactNode } from 'react';
 import { AppProvider } from '@/app/provider';
 import { getUserQueryOptions } from '@/lib/auth';
 import { paths } from '@/config/paths';
+import { Footer } from '@/components/Footer';
 
 import '@/styles/globals.css';
 
@@ -17,7 +18,11 @@ export const metadata = {
   description: 'Showcasing Best Practices For Building React Applications',
 };
 
-const RootLayout = async ({ children }: { children: ReactNode }) => {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(getUserQueryOptions());
@@ -26,9 +31,9 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
 
   return (
     <html lang="en">
-      <body>
+      <body className="bg-gray-900 min-h-screen flex flex-col">
         <AppProvider>
-          <nav className="bg-white shadow-sm border-b">
+          <nav className="bg-gray-800 border-b border-gray-700">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between h-16 items-center">
                 <div className="flex items-center">
@@ -45,32 +50,32 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
                     <ul className="flex items-center space-x-8">
                       <li>
                         <a
-                          href={paths.home.getHref()}
-                          className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                          href="/"
+                          className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                         >
                           Home
                         </a>
                       </li>
                       <li>
                         <a
-                          href={paths.app.projects.getHref()}
-                          className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-                        >
-                          Projects
-                        </a>
-                      </li>
-                      <li>
-                        <a
                           href="/services"
-                          className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                          className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                         >
                           Services
                         </a>
                       </li>
                       <li>
                         <a
+                          href="/projects"
+                          className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                        >
+                          Projects
+                        </a>
+                      </li>
+                      <li>
+                        <a
                           href="/contact"
-                          className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                          className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                         >
                           Contact
                         </a>
@@ -81,18 +86,17 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
               </div>
             </div>
           </nav>
-          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <HydrationBoundary state={dehydratedState}>
               {children}
             </HydrationBoundary>
           </main>
+          <Footer />
         </AppProvider>
       </body>
     </html>
   );
-};
-
-export default RootLayout;
+}
 
 // We are not prerendering anything because the app is highly dynamic
 // and the data depends on the user so we need to send cookies with each request
