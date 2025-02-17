@@ -1,43 +1,95 @@
+'use client';
+import { motion } from 'framer-motion';
+
 export default function ProjectsPage() {
+  const projects = [
+    {
+      title: "Maven Baseball Lab",
+      description: "Data-driven solutions for player performance analysis, integrating advanced metrics and machine learning models for optimal results.",
+      color: "blue",
+      link: "/projects/maven",
+      gradient: "from-blue-500/20 to-indigo-500/20",
+      icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+    },
+    {
+      title: "DM Lives",
+      description: "A technology-enhanced wellness brand leveraging smart solutions to deliver personalized tea experiences and streamlined operations.",
+      color: "purple",
+      link: "/projects/dmlives",
+      gradient: "from-purple-500/20 to-pink-500/20",
+      icon: "M13 10V3L4 14h7v7l9-11h-7z"
+    },
+    {
+      title: "Firedog Fireproofing",
+      description: "Engineered high-performance NAS infrastructure with comprehensive backup solutions, ensuring seamless data integrity and disaster recovery.",
+      color: "orange",
+      link: "/projects/firedog",
+      gradient: "from-orange-500/20 to-red-500/20",
+      icon: "M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
+    }
+  ];
+
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-bold text-gray-900">Projects</h1>
-      
-      <div className="grid gap-6 md:grid-cols-3">
-        <a 
-          href="/projects/firedog" 
-          className="block bg-white shadow rounded-lg p-6 hover:shadow-lg transition-shadow"
+    <div className="bg-gray-900 text-gray-100 min-h-screen">
+      {/* Simplified Hero Section */}
+      <div className="max-w-7xl mx-auto px-6 pt-24 pb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-3xl"
         >
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">Firedog Fireproofing</h2>
-          <p className="text-gray-600">
-            I engineered a high-performance NAS infrastructure with 
-            comprehensive backup solutions, ensuring seamless data integrity and disaster recovery 
-            through Synology NAS and Hyper Backup technologies.
+          <h1 className="text-5xl font-bold text-white mb-8 leading-tight">
+            Projects
+          </h1>
+          <p className="text-xl text-gray-300 leading-relaxed">
+            Explore my portfolio of technical solutions, from data analytics to infrastructure optimization.
           </p>
-        </a>
+        </motion.div>
+      </div>
 
-        <a 
-          href="/projects/maven" 
-          className="block bg-white shadow rounded-lg p-6 hover:shadow-lg transition-shadow"
-        >
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">Maven Baseball Lab</h2>
-          <p className="text-gray-600">
-            Develop data-driven solutions to streamline player performance analysis, integrating data 
-            from Blast, Trackman, and motion capture systems. Build and optimize machine learning models 
-            to extract key performance metrics.
-          </p>
-        </a>
-
-        <a 
-          href="/projects/dmlives" 
-          className="block bg-white shadow rounded-lg p-6 hover:shadow-lg transition-shadow"
-        >
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">DM Lives</h2>
-          <p className="text-gray-600">
-            Developed and implemented streaming solutions and content management systems
-            for digital media platforms.
-          </p>
-        </a>
+      {/* Projects Grid */}
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, index) => (
+            <motion.a
+              key={project.title}
+              href={project.link}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              className="group relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl">
+                <div className={`w-full h-full bg-gradient-to-br ${project.gradient}`}></div>
+              </div>
+              <div className="relative bg-gray-800/50 p-8 rounded-xl border border-gray-700 group-hover:border-gray-600 transition-all duration-300 h-full">
+                <div className={`text-${project.color}-400 mb-4`}>
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={project.icon} />
+                  </svg>
+                </div>
+                <h2 className="text-2xl font-bold text-white mb-4 group-hover:text-gray-200 transition-colors">
+                  {project.title}
+                </h2>
+                <p className="text-gray-300 leading-relaxed mb-6">
+                  {project.description}
+                </p>
+                <div className="flex items-center text-gray-300 group-hover:text-white transition-colors">
+                  <span>View Project</span>
+                  <svg 
+                    className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </motion.a>
+          ))}
+        </div>
       </div>
     </div>
   );
