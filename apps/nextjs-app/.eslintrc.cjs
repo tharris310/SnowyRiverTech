@@ -59,6 +59,9 @@ module.exports = {
         '@typescript-eslint/no-empty-function': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         'prettier/prettier': 'off',
+        'tailwindcss/classnames-order': 'off',
+        'tailwindcss/enforces-shorthand': 'off',
+        'tailwindcss/migration-from-tailwind-2': 'off',
       },
     },
     {

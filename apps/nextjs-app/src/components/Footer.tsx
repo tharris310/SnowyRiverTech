@@ -40,7 +40,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li><a href="/services#infrastructure" className="text-gray-400 hover:text-white transition-colors">Infrastructure & Security</a></li>
               <li><a href="/services#analytics" className="text-gray-400 hover:text-white transition-colors">Data Analytics</a></li>
-              <li><a href="/services#optimization" className="text-gray-400 hover:text-white transition-colors">Process Optimization</a></li>
+              <li><a href="/services#ecommerce" className="text-gray-400 hover:text-white transition-colors">E-commerce Solutions</a></li>
             </ul>
           </div>
 
@@ -48,9 +48,9 @@ export function Footer() {
           <div>
             <h3 className="text-white font-bold text-lg mb-4">Contact</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>Atlanta, GA</li>
-              <li>tyler@snowyrivertech.com</li>
-              <li>Mon - Fri: 9:00 AM - 5:00 PM EST</li>
+              <li>Portland, Oregon</li>
+              <li>contact@snowyriver.tech</li>
+              <li>Mon - Fri: 9:00 AM - 5:00 PM PST</li>
             </ul>
           </div>
         </div>

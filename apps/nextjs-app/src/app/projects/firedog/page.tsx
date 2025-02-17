@@ -102,14 +102,7 @@ export default function FiredogProjectPage() {
         <section>
           <h2 className="text-xl font-semibold text-gray-800 mb-2">Technologies Used</h2>
           <div className="flex flex-wrap gap-2">
-            {[
-              'Synology NAS',
-              'Hyper Backup',
-              'Data Encryption',
-              'Automated Backup',
-              'Disaster Recovery',
-              'Network Infrastructure'
-            ].map((tech) => (
+            {['Fire Safety', 'Project Management', 'Regulatory Compliance'].map((tech) => (
               <span key={tech} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
                 {tech}
               </span>

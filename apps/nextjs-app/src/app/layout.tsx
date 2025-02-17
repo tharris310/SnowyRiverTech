@@ -14,8 +14,16 @@ import { Footer } from '@/components/Footer';
 import '@/styles/globals.css';
 
 export const metadata = {
-  title: 'Bulletproof React',
-  description: 'Showcasing Best Practices For Building React Applications',
+  title: 'Snowy River Technologies',
+  description: 'Delivering innovative technical solutions and consulting services',
+  openGraph: {
+    title: 'Snowy River Technologies',
+    description: 'Delivering innovative technical solutions and consulting services',
+    url: 'https://snowyrivertech.com',
+    siteName: 'Snowy River Technologies',
+    locale: 'en_US',
+    type: 'website',
+  },
 };
 
 export default async function RootLayout({
