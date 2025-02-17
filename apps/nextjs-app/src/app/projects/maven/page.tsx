@@ -4,23 +4,50 @@ import { motion } from 'framer-motion';
 export default function MavenProjectPage() {
   return (
     <div className="bg-gray-900 text-gray-100 min-h-screen">
-      {/* Hero Section with Gradient */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-500/20 blur-3xl"></div>
-        <div className="relative max-w-7xl mx-auto px-6 pt-24 pb-20">
+      {/* Hero Section with Subtle Styling */}
+      <div className="relative">
+        {/* Subtle gradient line at top */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+        
+        {/* Very subtle radial gradient background */}
+        <div className="absolute inset-0 bg-radial-gradient from-blue-500/5 to-transparent"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 pt-24 pb-20 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-3xl"
           >
-            <h1 className="text-5xl font-bold text-white mb-8 leading-tight">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="inline-block mb-8"
+            >
+              <span className="text-sm font-medium text-blue-400 tracking-wider uppercase">
+                Data Analytics
+              </span>
+            </motion.div>
+            
+            <motion.h1 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-5xl font-bold text-white mb-8 leading-tight"
+            >
               Maven Baseball Lab
-            </h1>
-            <p className="text-xl text-gray-300 leading-relaxed">
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl text-gray-300 leading-relaxed"
+            >
               Developing data-driven solutions to streamline and enhance player performance analysis through 
               automated processing and advanced analytics.
-            </p>
+            </motion.p>
           </motion.div>
         </div>
       </div>

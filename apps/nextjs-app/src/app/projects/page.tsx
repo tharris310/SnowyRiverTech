@@ -31,21 +31,51 @@ export default function ProjectsPage() {
 
   return (
     <div className="bg-gray-900 text-gray-100 min-h-screen">
-      {/* Simplified Hero Section */}
-      <div className="max-w-7xl mx-auto px-6 pt-24 pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-3xl"
-        >
-          <h1 className="text-5xl font-bold text-white mb-8 leading-tight">
-            Projects
-          </h1>
-          <p className="text-xl text-gray-300 leading-relaxed">
-            Explore my portfolio of technical solutions, from data analytics to infrastructure optimization.
-          </p>
-        </motion.div>
+      {/* Hero Section with Subtle Styling */}
+      <div className="relative">
+        {/* Subtle gradient line at top */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent"></div>
+        
+        {/* Very subtle radial gradient background */}
+        <div className="absolute inset-0 bg-radial-gradient from-indigo-500/5 to-transparent"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 pt-24 pb-20 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl"
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="inline-block mb-8"
+            >
+              <span className="text-sm font-medium text-indigo-400 tracking-wider uppercase">
+                Portfolio
+              </span>
+            </motion.div>
+            
+            <motion.h1 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-5xl font-bold text-white mb-8 leading-tight"
+            >
+              Projects
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl text-gray-300 leading-relaxed"
+            >
+              Explore my portfolio of technical solutions, from data analytics to infrastructure optimization.
+            </motion.p>
+          </motion.div>
+        </div>
       </div>
 
       {/* Projects Grid */}
