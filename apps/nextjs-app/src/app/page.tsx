@@ -1,36 +1,148 @@
-import { Button } from '@/components/ui/button';
-import { Link } from '@/components/ui/link';
-import { paths } from '@/config/paths';
-import { checkLoggedIn } from '@/utils/auth';
+'use client';
+import { useEffect, useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
 
 export default function HomePage() {
-  const isLoggedIn = checkLoggedIn();
+  const [init, setInit] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+      setInit(true);
+    });
+  }, []);
+
+  const particlesOptions = {
+    background: {
+      color: {
+        value: "transparent",
+      },
+    },
+    particles: {
+      color: {
+        value: "#6366f1",
+      },
+      links: {
+        color: "#6366f1",
+        distance: 150,
+        enable: true,
+        opacity: 0.2,
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 1,
+      },
+      number: {
+        value: 50,
+        density: {
+          enable: true,
+          value_area: 800,
+        },
+      },
+      opacity: {
+        value: 0.4,
+      },
+      size: {
+        value: { min: 1, max: 3 },
+      },
+    },
+  };
 
   return (
-    <div className="space-y-16 bg-gray-900 text-gray-100">
+    <div className="relative min-h-screen bg-gray-900 text-gray-100 overflow-hidden">
+      {/* Particle effect background */}
+      {init && (
+        <Particles
+          id="tsparticles"
+          className="absolute inset-0"
+          options={particlesOptions}
+        />
+      )}
+
       {/* Hero Section */}
-      <section className="text-center space-y-6">
-        <h1 className="text-5xl font-bold text-white">
-          Innovative Technical Solutions
-        </h1>
-        <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-          Delivering cutting-edge solutions in infrastructure, data analytics, and e-commerce optimization
-        </p>
-        <div className="flex justify-center gap-4">
-          <a
-            href="/contact"
-            className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+      <div className="relative">
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-indigo-500/10 via-purple-500/10 to-transparent"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 pt-32 pb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{ opacity }}
+            className="relative z-10"
           >
-            Get Started
-          </a>
-          <a
-            href="/projects"
-            className="px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors font-medium border border-gray-700"
-          >
-            View Projects
-          </a>
+            {/* Animated text reveal */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="mb-6"
+            >
+              <span className="text-sm font-medium text-indigo-400 tracking-wider uppercase">
+                Welcome to
+              </span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-6xl font-bold text-white mb-8 leading-tight"
+            >
+              Snowy River <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
+                Technologies
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-xl text-gray-300 max-w-2xl leading-relaxed mb-12"
+            >
+              Delivering cutting-edge solutions in infrastructure, data analytics, 
+              and e-commerce optimization.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="flex gap-4"
+            >
+              <a
+                href="/projects"
+                className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 
+                         transition-colors duration-300 flex items-center group"
+              >
+                View Projects
+                <svg
+                  className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+              <a
+                href="/contact"
+                className="px-6 py-3 border border-gray-700 text-gray-300 rounded-lg 
+                         hover:border-gray-600 hover:text-white transition-colors duration-300"
+              >
+                Contact Me
+              </a>
+            </motion.div>
+          </motion.div>
         </div>
-      </section>
+      </div>
 
       {/* Featured Projects */}
       <section className="space-y-8">
