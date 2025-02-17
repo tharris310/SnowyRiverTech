@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import Image from 'next/image';
 
 export default function HomePage() {
   const [init, setInit] = useState(false);
@@ -59,17 +60,17 @@ export default function HomePage() {
       {init && (
         <Particles
           id="tsparticles"
-          className="absolute inset-0"
+          className="absolute inset-0 pointer-events-none"
           options={particlesOptions}
         />
       )}
 
-      {/* Hero Section */}
-      <div className="relative">
+      {/* Hero Section - Added min-h-screen */}
+      <div className="relative min-h-screen">
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-indigo-500/10 via-purple-500/10 to-transparent"></div>
         
-        <div className="max-w-7xl mx-auto px-6 pt-32 pb-24">
+        <div className="max-w-7xl mx-auto px-6 pt-32 pb-24 min-h-screen flex items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -108,7 +109,7 @@ export default function HomePage() {
               className="text-xl text-gray-300 max-w-2xl leading-relaxed mb-12"
             >
               Delivering cutting-edge solutions in infrastructure, data analytics, 
-              and e-commerce optimization.
+              and process optimization.
             </motion.p>
 
             <motion.div
@@ -143,6 +144,51 @@ export default function HomePage() {
           </motion.div>
         </div>
       </div>
+
+      {/* About Section */}
+      <section className="relative py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              <div className="aspect-square relative rounded-2xl overflow-hidden">
+                <Image
+                  src="/images/profile.jpg"
+                  alt="Tyler Harris"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+              {/* Decorative elements */}
+              <div className="absolute -bottom-4 -right-4 w-2/3 h-2/3 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-2xl -z-10"></div>
+            </div>
+            
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold text-white">About Me</h2>
+              <p className="text-gray-300 text-lg leading-relaxed">
+                Hi, I&apos;m Tyler Harris. With extensive experience in infrastructure, data analytics, 
+                and process optimization, I help businesses leverage technology to achieve their goals.
+              </p>
+              <p className="text-gray-300 text-lg leading-relaxed">
+                My approach combines technical expertise with a deep understanding of business needs, 
+                ensuring solutions that drive real value and growth.
+              </p>
+              <div className="flex gap-4 pt-4">
+                <a
+                  href="/contact"
+                  className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 transition-colors duration-300"
+                >
+                  Get in Touch
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Featured Projects */}
       <section className="space-y-8">

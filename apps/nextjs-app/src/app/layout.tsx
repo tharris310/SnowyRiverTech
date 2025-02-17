@@ -41,25 +41,27 @@ export default async function RootLayout({
     <html lang="en">
       <body className="bg-gray-900 min-h-screen flex flex-col">
         <AppProvider>
-          <nav className="bg-gray-800 border-b border-gray-700">
+          <nav className="fixed w-full z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between h-16 items-center">
+              <div className="flex justify-between h-20 items-center">
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
                     <Image
                       src="/images/logo.svg"
                       alt="Company Logo"
-                      width={32}
-                      height={32}
+                      width={40}
+                      height={40}
                       priority
+                      className="rounded-lg"
                     />
                   </div>
-                  <div className="ml-6">
+                  <div className="ml-8">
                     <ul className="flex items-center space-x-8">
                       <li>
                         <a
                           href="/"
-                          className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                          className="text-gray-300 hover:text-white px-4 py-2 rounded-lg text-sm font-medium 
+                                   transition-all duration-300 hover:bg-gray-800"
                         >
                           Home
                         </a>
@@ -67,7 +69,8 @@ export default async function RootLayout({
                       <li>
                         <a
                           href="/services"
-                          className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                          className="text-gray-300 hover:text-white px-4 py-2 rounded-lg text-sm font-medium 
+                                   transition-all duration-300 hover:bg-gray-800"
                         >
                           Services
                         </a>
@@ -75,7 +78,8 @@ export default async function RootLayout({
                       <li>
                         <a
                           href="/projects"
-                          className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                          className="text-gray-300 hover:text-white px-4 py-2 rounded-lg text-sm font-medium 
+                                   transition-all duration-300 hover:bg-gray-800"
                         >
                           Projects
                         </a>
@@ -83,7 +87,8 @@ export default async function RootLayout({
                       <li>
                         <a
                           href="/contact"
-                          className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                          className="text-gray-300 hover:text-white px-4 py-2 rounded-lg text-sm font-medium 
+                                   transition-all duration-300 hover:bg-gray-800"
                         >
                           Contact
                         </a>
@@ -94,7 +99,7 @@ export default async function RootLayout({
               </div>
             </div>
           </nav>
-          <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-20">
             <HydrationBoundary state={dehydratedState}>
               {children}
             </HydrationBoundary>

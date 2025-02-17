@@ -2,7 +2,7 @@ export default function ServicesPage() {
   return (
     <div className="space-y-12 bg-gray-900 text-gray-100">
       <div className="text-center">
-        <h1 className="text-4xl font-bold text-white mb-4">Our Services</h1>
+        <h1 className="text-4xl font-bold text-white mb-4">My Services</h1>
         <p className="text-lg text-gray-400 max-w-2xl mx-auto">
           Delivering innovative technical solutions and consulting services to help businesses thrive in the digital age
         </p>
