@@ -48,7 +48,7 @@ export function Footer() {
           <div>
             <h3 className="text-white font-bold text-lg mb-4">Contact</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>Portland, Oregon</li>
+              <li>Atlanta, Georgia</li>
               <li>contact@snowyriver.tech</li>
               <li>Mon - Fri: 9:00 AM - 5:00 PM PST</li>
             </ul>
