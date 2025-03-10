@@ -45,6 +45,21 @@ export default function ProjectsPage() {
         { name: 'Raid 5', icon: '/images/tech/raid.svg' },
         { name: 'Cloud Integration', icon: '/images/tech/cloud.svg' }
       ]
+    },
+    {
+      title: "Sentinel Devices",
+      description: "Developed a robust protocol implementation for secure Modbus PLC communication, enabling real-time industrial automation monitoring and control.",
+      color: "green",
+      link: "/projects/sentinel",
+      gradient: "from-emerald-500/20 to-green-500/20",
+      companyLogo: '/images/companies/sentinel.svg',
+      techStack: [
+        { name: 'Node.js', icon: '/images/tech/nodejs.svg' },
+        { name: 'MQTT', icon: '/images/tech/mqtt.svg' },
+        { name: 'PostgreSQL', icon: '/images/tech/postgresql.svg' },
+        { name: 'Docker', icon: '/images/tech/docker.svg' },
+        { name: 'Modbus', icon: '/images/tech/modbus.svg' }
+      ]
     }
   ];
 
@@ -122,13 +137,13 @@ export default function ProjectsPage() {
                           className="flex items-center space-x-2 bg-gray-900/50 backdrop-blur-sm rounded-lg px-3 py-2 border border-gray-700/50 group-hover:border-gray-600/50 transition-all duration-300"
                         >
                           {'icon' in tech && tech.icon && (
-                            <div className="relative w-8 h-8">
+                            <div className="relative w-12 h-12">
                               <Image
                                 src={tech.icon}
                                 alt={tech.name}
                                 fill
                                 className="object-contain"
-                                sizes="32px"
+                                sizes="48px"
                               />
                             </div>
                           )}
