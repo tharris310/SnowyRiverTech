@@ -7,7 +7,8 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="text-white font-bold text-lg">Snowy River Technologies</h3>
             <p className="text-gray-400 text-sm">
-              Delivering innovative solutions for modern business challenges
+              Delivering cutting-edge solutions in infrastructure, data analytics, 
+              and industrial automation.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-indigo-400 transition-colors">
@@ -38,19 +39,19 @@ export function Footer() {
           <div>
             <h3 className="text-white font-bold text-lg mb-4">Services</h3>
             <ul className="space-y-2">
-              <li><a href="/services#infrastructure" className="text-gray-400 hover:text-white transition-colors">Infrastructure & Security</a></li>
-              <li><a href="/services#analytics" className="text-gray-400 hover:text-white transition-colors">Data Analytics</a></li>
-              <li><a href="/services#ecommerce" className="text-gray-400 hover:text-white transition-colors">E-commerce Solutions</a></li>
+              <li><a href="/services#automation" className="text-gray-400 hover:text-white transition-colors">Industrial Automation</a></li>
+              <li><a href="/services#analytics" className="text-gray-400 hover:text-white transition-colors">Performance Analytics</a></li>
+              <li><a href="/services#infrastructure" className="text-gray-400 hover:text-white transition-colors">Infrastructure Security</a></li>
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Featured Projects */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">Contact</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li>Atlanta, Georgia</li>
-              <li>contact@snowyriver.tech</li>
-              <li>Mon - Fri: 9:00 AM - 5:00 PM PST</li>
+            <h3 className="text-white font-bold text-lg mb-4">Featured Projects</h3>
+            <ul className="space-y-2">
+              <li><a href="/projects/maven" className="text-gray-400 hover:text-white transition-colors">Maven Baseball Lab</a></li>
+              <li><a href="/projects/sentinel" className="text-gray-400 hover:text-white transition-colors">Sentinel Devices</a></li>
+              <li><a href="/projects/firedog" className="text-gray-400 hover:text-white transition-colors">Firedog Fireproofing</a></li>
             </ul>
           </div>
         </div>
